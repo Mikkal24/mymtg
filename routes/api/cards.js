@@ -10,7 +10,7 @@ router
 router
   .route("/:id")
   .get(cardsController.findById)
-  .update(cardsController.updateById)
+  .put(cardsController.updateById)
   .delete(cardsController.deleteById);
 
 module.exports = router;

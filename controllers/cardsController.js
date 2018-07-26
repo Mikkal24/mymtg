@@ -12,7 +12,7 @@ module.exports = {
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.satus(422).json(err));
   },
-  delete: (req, res) => {
+  deleteAll: (req, res) => {
     db.User.destroy({})
       .then(() => res.json(200))
       .catch(err => res.status(422).json(err));

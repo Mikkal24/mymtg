@@ -3,7 +3,7 @@ const compression = require("compression");
 const bodyParser = require("body-parser");
 const path = require("path");
 const db = require("./models");
-// const routes = require("./routes");
+const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
 
@@ -23,9 +23,14 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/", routes);
 
 const PORT = 8080;
 
 app.listen(PORT, function() {
   console.log("We're running on port " + PORT + " mang");
+});
+
+db.sequelize.sync({}).then(() => {
+  console.log("DB Connected!");
 });
