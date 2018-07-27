@@ -1,0 +1,161 @@
+$primary-color: #2d2e2e;
+$secondary-color: #feb600;
+$hover-color: rgba(0, 0, 0, 0.5);
+$darkOrange: #fb7002;
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $primary-color;
+  border-bottom: 4px solid $darkOrange;
+  * {
+    z-index: 5;
+  }
+
+  .hamburger {
+    a {
+      display: none;
+      padding: 16px 16px;
+      color: $secondary-color;
+      cursor: pointer;
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  #toggle,
+  #userToggle {
+    display: none;
+  }
+
+  .icon {
+    // position: relative;
+    width: 100px;
+    object {
+      position: absolute;
+      max-width: 100px;
+      top: 0px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.left {
+    flex: 1;
+    li.links {
+      margin-left: 100px;
+      ul {
+        li {
+          padding: 16px 16px;
+          display: inline-block;
+          &:hover {
+            background-color: $hover-color;
+          }
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .icon {
+      padding: 0px;
+      z-index: 99;
+    }
+  }
+
+  ul.right {
+    text-align: right;
+    li.user {
+      color: white;
+      div {
+        padding: 16px 0px;
+      }
+
+      label {
+        padding: 14px 16px;
+        cursor: pointer;
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+
+      .dropdown {
+        position: absolute;
+        // padding: 16px 16px;
+        display: none;
+        background-color: $primary-color;
+        right: 0;
+        li {
+          padding: 14px 16px;
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+      }
+      #userToggle:checked ~ .dropdown {
+        display: block;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    .hamburger {
+      a {
+        flex: 1;
+        display: block;
+      }
+    }
+
+    #toggle:checked ~ .left {
+      .links {
+        display: block;
+      }
+    }
+
+    ul.left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      li.links {
+        flex: 0;
+        display: none;
+        position: absolute;
+        left: -102px;
+        right: 0;
+        top: 51px;
+        background-color: $primary-color;
+        ul {
+          li {
+            display: block;
+            text-align: left;
+            &:hover {
+              background-color: $hover-color;
+            }
+          }
+        }
+      }
+
+      .icon {
+        display: block;
+        height: 51px;
+        object {
+          position: auto;
+        }
+      }
+    }
+  }
+}

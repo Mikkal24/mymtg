@@ -13,6 +13,7 @@ interface authStatus {
 export class AuthenticationService {
   url: string = "http://localhost:8080/auth/";
   authenticated: boolean;
+  redirectUrl: string;
   constructor(private http: HttpClient) {}
 
   login(data) {
@@ -26,7 +27,7 @@ export class AuthenticationService {
     this.http.get(this.url + "logout");
   }
 
-  checkAuth() {
+  checkBackEndAuth() {
     this.http.get(this.url + "checkstatus").subscribe(res => {
       let data = res as authStatus;
       this.authenticated = data.authenticated;
