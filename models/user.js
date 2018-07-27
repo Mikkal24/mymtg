@@ -6,7 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       email: DataTypes.STRING,
-      rank: DataTypes.INTEGER
+      rank: DataTypes.INTEGER,
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("NOW()")
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("NOW()")
+      }
     },
     {}
   );

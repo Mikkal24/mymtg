@@ -1,0 +1,22 @@
+<div class="loginContainer">
+  <div class="topSection">
+
+  </div>
+  <div class="midSection">
+    <div>
+      <div class="title">
+        <h1>CSWeb Albatross</h1>
+      </div>
+      <div class="form">
+        <div>
+          <input #username id="username" type="text" placeholder="Username">
+        </div>
+        <div>
+          <input #password id="password" type="password" placeholder="Password">
+        </div>
+        <button (click)="login(username.value, password.value)">Let me in.</button>
+      </div>
+    </div>
+  </div>
+  <div class="bottomSection"></div>
+</div>
