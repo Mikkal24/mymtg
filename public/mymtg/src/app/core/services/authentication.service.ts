@@ -26,19 +26,10 @@ export class AuthenticationService {
     this.http.get(this.url + "logout");
   }
 
-  checkAuth = new Promise((resolve, reject) => {
+  checkAuth() {
     this.http.get(this.url + "checkstatus").subscribe(res => {
       let data = res as authStatus;
-      resolve(data.authenticated);
-      if (data.authenticated !== (true || false))
-        reject("something went wrong");
+      this.authenticated = data.authenticated;
     });
-  });
-
-  // checkAuth() {
-  //   this.http.get(this.url + "checkstatus").subscribe(res => {
-  //     let data = res as authStatus;
-  //     this.authenticated = data.authenticated;
-  //   });
-  // }
+  }
 }
