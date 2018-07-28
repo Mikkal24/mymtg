@@ -10,26 +10,26 @@ import { AuthenticationService } from "./authentication.service";
 @Injectable({
   providedIn: "root"
 })
-export class AuthGuardService {
+export class AuthGuardService implements CanActivate {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
   ) {}
+  authenticated: boolean = false;
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let url: string = state.url;
-
+    console.log("can i activate?");
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string): boolean {
-    if (this.authenticationService.authenticated) return true;
-
+  async checkLogin(url: string) {
+    await this.authenticationService.checkBackEndAuth;
+    console.log("authenticated?", this.authenticationService.authenticated);
+    if (this.authenticationService.authenticated) {
+      return true;
+    }
     this.authenticationService.redirectUrl = url;
-
     this.router.navigate(["/login"]);
     return false;
   }

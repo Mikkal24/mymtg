@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./login/register/register.component";
+import { AuthGuardService } from "./core/services/auth-guard.service";
+
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
   },
   {
     path: "",
+    canActivate:[AuthGuardService],
     loadChildren: "./mtg/mtg.module#MTGModule"
   },
   {

@@ -6,6 +6,7 @@ const db = require("./models");
 const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
+const passportController = require("./controllers/passportController");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
@@ -26,11 +28,16 @@ app.use(
   session({
     secret: "supersecretsecret",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      secure: false,
+      maxAge: 3600000 //1 hour
+    }
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use("/", routes);
 
 const PORT = 8080;

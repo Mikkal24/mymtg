@@ -76,11 +76,11 @@ nav {
     li.user {
       color: white;
       div {
-        padding: 16px 0px;
+        padding: 17px 0px;
       }
 
       label {
-        padding: 14px 16px;
+        padding: 17px 16px;
         cursor: pointer;
         &:hover {
           background-color: $hover-color;
@@ -93,6 +93,8 @@ nav {
         display: none;
         background-color: $primary-color;
         right: 0;
+        border-left: 4px solid $darkOrange;
+        border-bottom: 4px solid $darkOrange;
         li {
           padding: 14px 16px;
           &:hover {
@@ -122,6 +124,7 @@ nav {
     #toggle:checked ~ .left {
       .links {
         display: block;
+        border-bottom: 4px solid $darkOrange;
       }
     }
 

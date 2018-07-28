@@ -8,7 +8,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   db.User.find({ where: { id: id } })
-    .then(dbModel => done(null, user))
+    .then(dbModel => done(null, dbModel))
     .catch(err => console.log(err));
 });
 
@@ -34,27 +34,29 @@ module.exports = {
     passport.authenticate("local", (err, user, info) => {
       if (err) console.log(err);
       if (info) res.status(401).send(info);
-
       req.logIn(user, err => {
         if (err) return next(err);
-        return res.send(user);
+        delete user.password;
+        return res.json(user);
       });
     })(req, res, next);
   },
 
   logout: (req, res) => {
     req.logout();
-    res.status(200).send("Goodbye!");
+    res.status(200).json({ message: "Goodbye!" });
   },
 
   checkStatus: (req, res) => {
-    req.user
-      ? res.status(200).json({ authenticated: true })
-      : res
-          .status(204)
-          .json({
-            authenticated: false,
-            message: "User has not been authenticated"
-          });
+    if (typeof req.user !== "undefined") {
+      let user = req.user.dataValues;
+      delete user.password;
+      res.status(200).json({ authenticated: true, user: user });
+    } else {
+      res.status(200).json({
+        authenticated: false,
+        message: "User has not been authenticated"
+      });
+    }
   }
 };

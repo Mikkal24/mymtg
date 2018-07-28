@@ -4,5 +4,7 @@ export interface User {
   username: string;
   email: string;
   rank: number;
-  cards: Card[];
+  createdAt: string;
+  updatedAt: string;
+  cards?: Card[];
 }

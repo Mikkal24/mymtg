@@ -1,6 +1,6 @@
 <!-- <object type="image/svg+xml" data="/assets/eye2.svg" class="logo">Daybreak Logo</object> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<nav>
+<nav *ngIf="user">
   <input type="checkbox" id="toggle" name="toggle">
   <label for="toggle" class="hamburger">
     <a>
@@ -30,17 +30,17 @@
     <li class="user">
       <input type="checkbox" id="userToggle" name="userToggle">
       <div>
-        <label for="userToggle">Msorensen</label>
+        <label for="userToggle">{{user.username}}</label>
       </div>
       <ul class="dropdown">
-        <li>
-          <a href="#manage">"{{ '{' }}"username"{{ '}' }}"</a>
-        </li>
         <li>
           <a href="#settings">Browse</a>
         </li>
         <li>
           <a href="tools">Add</a>
+        </li>
+        <li>
+          <a (click)="logout()">Logout</a>
         </li>
       </ul>
     </li>
