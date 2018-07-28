@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "../../core/services/authentication.service";
-import { Observable } from "../../../../node_modules/rxjs";
+import { Observable } from "rxjs";
 import { User } from "../../models/user.model";
-import { Store } from "../../../../node_modules/@ngrx/store";
+import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
 
 @Component({
@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(user => {
+      console.log(user);
       this.user = user;
     });
   }

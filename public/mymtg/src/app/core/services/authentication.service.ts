@@ -32,6 +32,7 @@ export class AuthenticationService {
 
   login(data) {
     this.http.post(this.url + "login", data, httpOptions).subscribe(data => {
+      console.log(data);
       this.store.dispatch(new UserActions.SetUser(data as User));
       this.http.get(this.url + "checkstatus", httpOptions).subscribe(res => {
         let data = res as any;
@@ -51,12 +52,12 @@ export class AuthenticationService {
   }
 
   checkBackEndAuth = new Promise<boolean>((resolve, reject) => {
-    console.log("checking back end auth status");
     this.http.get(this.url + "checkstatus", httpOptions).subscribe(res => {
       let data = res as authStatus;
       this.authenticated = data.authenticated;
       if (data.authenticated) {
-        this.store.dispatch(new UserActions.SetUser(data.user));
+        console.log(data);
+        this.store.dispatch(new UserActions.SetUser(data.user as User));
       }
       resolve(data.authenticated);
     });

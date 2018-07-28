@@ -4,7 +4,11 @@
   <mat-card-content></mat-card-content>
 
   <mat-form-field>
-    <input placeholder="search" matInput type="search">
+    <input #searchField placeholder="search" matInput type="search">
   </mat-form-field>
-
+  <button mat-raised-button color="primary" (click)="search(searchField.value)">search</button>
+  <mat-card-content *ngIf="currentCard">
+    <img mat-card-image src="{{currentCard.image}}">
+    <button mat-raised-button color="primary" (click)="add()">Add?</button>
+  </mat-card-content>
 </mat-card>

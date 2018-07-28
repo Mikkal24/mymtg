@@ -9,8 +9,9 @@ import { NavbarComponent } from "../scaffolding/navbar/navbar.component";
 import {
   MatFormFieldModule,
   MatInputModule,
-  MatCardModule
-} from "../../../node_modules/@angular/material";
+  MatCardModule,
+  MatButtonModule
+} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {
     MTGRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   declarations: [
     BrowseComponent,

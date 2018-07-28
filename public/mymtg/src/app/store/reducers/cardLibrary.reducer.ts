@@ -1,6 +1,6 @@
 import { Action } from "@ngrx/store";
 import { Card } from "../../models/card.model";
-import * as CardActions from "../actions/card.actions";
+import * as CardActions from "../actions/cardLibrary.actions";
 
 export function reducer(state: Card[], action: CardActions.Actions) {
   switch (action.type) {

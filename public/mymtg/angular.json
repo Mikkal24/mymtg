@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "mymtg"
+  "defaultProject": "mymtg",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
