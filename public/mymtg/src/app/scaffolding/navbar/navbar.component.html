@@ -16,10 +16,7 @@
     <li class="links">
       <ul>
         <li>
-          <a href="#home" class="active">Home</a>
-        </li>
-        <li>
-          <a href="search">Search</a>
+          <a routerLink="/" class="active">Home</a>
         </li>
       </ul>
     </li>
@@ -34,13 +31,13 @@
       </div>
       <ul class="dropdown">
         <li>
-          <a href="#settings">Browse</a>
+          <a routerLink="/browse">Browse</a>
         </li>
         <li>
-          <a href="tools">Add</a>
+          <a routerLink="/add">Add</a>
         </li>
         <li>
-          <a (click)="logout()">Logout</a>
+          <a href="#" (click)="logout()">Logout</a>
         </li>
       </ul>
     </li>
