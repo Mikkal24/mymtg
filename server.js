@@ -38,9 +38,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static(__dirname + "/public/mymtg/dist/mymtg"));
 app.use("/", routes);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/mymtg/dist/mymtg/index.html"));
+});
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, function() {
   console.log("We're running on port " + PORT + " mang");

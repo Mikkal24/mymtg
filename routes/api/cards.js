@@ -13,4 +13,6 @@ router
   .put(cardsController.updateById)
   .delete(cardsController.deleteById);
 
+router.route("/usercards").get(cardsController.findById);
+
 module.exports = router;

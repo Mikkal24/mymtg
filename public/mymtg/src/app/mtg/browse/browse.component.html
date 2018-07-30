@@ -1,3 +1,8 @@
-<p>
-  browse works!
-</p>
+<div class="carousel">
+  <ng-container *ngFor="let card  of cards | async; index as i">
+    <input type="checkbox" class="faux-ui-facia">
+    <div class="slide" slide="i" annot="">
+      <img src="{{card.imgUrl}}">
+    </div>
+  </ng-container>
+</div>

@@ -8,7 +8,7 @@
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="search(searchField.value)">search</button>
   <mat-card-content *ngIf="currentCard">
-    <img mat-card-image src="{{currentCard.image}}">
+    <img mat-card-image src="{{currentCard.imgUrl}}">
     <button mat-raised-button color="primary" (click)="add()">Add?</button>
   </mat-card-content>
 </mat-card>

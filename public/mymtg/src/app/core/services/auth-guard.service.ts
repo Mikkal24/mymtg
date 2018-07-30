@@ -24,7 +24,6 @@ export class AuthGuardService implements CanActivate {
 
   async checkLogin(url: string) {
     await this.authenticationService.checkBackEndAuth;
-    console.log("authenticated?", this.authenticationService.authenticated);
     if (this.authenticationService.authenticated) {
       return true;
     }

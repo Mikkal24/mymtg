@@ -5,6 +5,11 @@ import { User } from "../../models/user.model";
 import { Store } from "../../../../node_modules/@ngrx/store";
 import { AppState } from "../../app.state";
 import { Observable } from "../../../../node_modules/rxjs";
+import * as CardLibraryActions from "../../store/actions/cardLibrary.actions";
+
+const httpOptions = {
+  withCredentials: true
+};
 
 @Injectable({
   providedIn: "root"
@@ -19,9 +24,18 @@ export class RestApiService {
   addCard(card: Card): void {
     this.user$.subscribe(user => {
       card.UserId = user.id;
-      delete card.image;
+      // delete card.image;
       console.log(card);
       this.http.post(this.url, card).subscribe();
     });
+  }
+
+  getUserCards() {
+    this.http
+      .get(this.url + "/usercards", httpOptions)
+      .subscribe((data: Card[]) => {
+        console.log(data);
+        this.store.dispatch(new CardLibraryActions.AddCard(data));
+      });
   }
 }

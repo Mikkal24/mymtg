@@ -16,6 +16,7 @@ import {
 } from "@angular/material";
 import { UserReducer } from "./store/reducers/user.reducer";
 import { CurrentCardReducer } from "./store/reducers/currentCard.reducer";
+import { CardLibraryReducer } from "./store/reducers/cardLibrary.reducer";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
@@ -29,7 +30,11 @@ import { CurrentCardReducer } from "./store/reducers/currentCard.reducer";
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    StoreModule.forRoot({ user: UserReducer, currentCard: CurrentCardReducer })
+    StoreModule.forRoot({
+      user: UserReducer,
+      currentCard: CurrentCardReducer,
+      cardLibrary: CardLibraryReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

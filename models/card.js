@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Card",
     {
       name: DataTypes.STRING,
+      imgUrl: DataTypes.STRING,
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("NOW()")

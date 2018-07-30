@@ -1,6 +1,6 @@
 export interface Card {
   name: string;
-  image: string;
+  imgUrl: string;
   copies?: number;
   UserId?: number;
 }

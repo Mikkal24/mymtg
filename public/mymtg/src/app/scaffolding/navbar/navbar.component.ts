@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(user => {
-      console.log(user);
       this.user = user;
     });
   }

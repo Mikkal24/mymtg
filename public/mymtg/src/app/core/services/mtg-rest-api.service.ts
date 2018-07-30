@@ -17,8 +17,7 @@ export class MtgRestApiService {
     let queryString = `${this.url}/?${this.generateQueryString(data)}`;
     this.http.get(queryString).subscribe((res: any) => {
       let data = res.cards[0];
-      this.card = { name: data.name, image: data.imageUrl };
-      console.log(this.card);
+      this.card = { name: data.name, imgUrl: data.imageUrl };
       this.store.dispatch(new CurrentCardActions.SetCurrentCard(this.card));
     });
   }

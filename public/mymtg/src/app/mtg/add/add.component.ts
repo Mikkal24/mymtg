@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MtgRestApiService } from "../../core/services/mtg-rest-api.service";
 import { Card } from "../../models/card.model";
-import { Observable } from "../../../../node_modules/rxjs";
+import { Observable, Subscription } from "../../../../node_modules/rxjs";
 import { Store } from "../../../../node_modules/@ngrx/store";
 import { AppState } from "../../app.state";
 import { RestApiService } from "../../core/services/rest-api.service";
@@ -21,14 +21,20 @@ export class AddComponent implements OnInit {
   }
   currentCard$: Observable<Card>;
   currentCard: Card;
-  ngOnInit() {}
-
-  search(name) {
-    this.mtgRestService.search({ name: name });
-    this.currentCard$.subscribe(data => {
+  sub: Subscription;
+  ngOnInit() {
+    this.sub = this.currentCard$.subscribe(data => {
       console.log(data);
       this.currentCard = data;
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  search(name) {
+    this.mtgRestService.search({ name: name });
   }
 
   add() {
