@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "heroku-postbuild": "cd public/mymtg && npm i",
-    "postinstall": "cd public/mymtg && npm i && ng build --aot -prod"
+    "heroku-postbuild": "cd public/mymtg && npm i"
   },
   "repository": {
     "type": "git",
