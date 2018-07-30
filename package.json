@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd public/mymtg && ng build"
+    "start": "node server",
+    "postinstall": "npm i && npm i --prefix public/mymtg"
   },
   "repository": {
     "type": "git",
