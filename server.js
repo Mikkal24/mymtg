@@ -6,7 +6,6 @@ const db = require("./models");
 const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
-const passportController = require("./controllers/passportController");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));

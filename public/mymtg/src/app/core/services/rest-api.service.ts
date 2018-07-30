@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class RestApiService {
   user$: Observable<User>;
-  url: string = "http://localhost:8080/api/card";
+  url: string = "/api/card";
   constructor(private http: HttpClient, private store: Store<AppState>) {
     this.user$ = store.select("user");
   }

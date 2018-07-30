@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
   providedIn: "root"
 })
 export class RegisterService {
-  url: string = "http://localhost:8080/api/user";
+  url: string = "/api/user";
   constructor(private http: HttpClient, private router: Router) {}
 
   createUser(data) {

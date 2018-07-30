@@ -21,7 +21,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class AuthenticationService {
-  url: string = "http://localhost:8080/auth/";
+  url: string = "/auth/";
   authenticated: boolean = false;
   redirectUrl: string;
   constructor(
