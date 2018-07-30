@@ -4,7 +4,8 @@
   "description": "This is a mobile friendly application that will allow users to keep track of their MTG cards with ease.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd public/mymtg && ng build"
   },
   "repository": {
     "type": "git",
