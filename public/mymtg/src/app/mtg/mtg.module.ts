@@ -12,6 +12,7 @@ import {
   MatCardModule,
   MatButtonModule
 } from "@angular/material";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {
     BrowseComponent,
     AddComponent,
     MainContainerComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   bootstrap: [MainContainerComponent]
 })
