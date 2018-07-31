@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Card } from "../../models/card.model";
+import { Card } from "../../../models/card.model";
 import * as CurrentCardActions from "../actions/currentCard.actions";
 
 export function CurrentCardReducer(

@@ -5,7 +5,7 @@ import { User } from "../../models/user.model";
 import { Store } from "../../../../node_modules/@ngrx/store";
 import { AppState } from "../../app.state";
 import { Observable } from "../../../../node_modules/rxjs";
-import * as CardLibraryActions from "../../store/actions/cardLibrary.actions";
+import * as CardLibraryActions from "../../core/store/actions/cardLibrary.actions";
 
 const httpOptions = {
   withCredentials: true

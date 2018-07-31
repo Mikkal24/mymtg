@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action } from "@ngrx/store";
-import { Card } from "../../models/card.model";
+import { Card } from "../../../models/card.model";
 
 export const SET_CURRENTCARD = "[CARD] Set";
 

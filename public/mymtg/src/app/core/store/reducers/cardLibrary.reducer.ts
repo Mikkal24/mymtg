@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Card } from "../../models/card.model";
+import { Card } from "../../../models/card.model";
 import * as CardActions from "../actions/cardLibrary.actions";
 
 export function CardLibraryReducer(state: Card[], action: CardActions.Actions) {

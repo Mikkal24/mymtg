@@ -4,7 +4,7 @@ import { resolve } from "url";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
-import * as UserActions from "../../store/actions/user.actions";
+import * as UserActions from "../../core/store/actions/user.actions";
 import { User } from "../../models/user.model";
 
 interface authStatus {

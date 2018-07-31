@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Card } from "../../models/card.model";
 import { Store } from "../../../../node_modules/@ngrx/store";
 import { AppState } from "../../app.state";
-import * as CurrentCardActions from "../../store/actions/currentCard.actions";
+import * as CurrentCardActions from "../../core/store/actions/currentCard.actions";
 
 @Injectable({
   providedIn: "root"

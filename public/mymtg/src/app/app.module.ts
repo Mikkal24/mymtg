@@ -14,9 +14,9 @@ import {
   MatCardModule,
   MatIconModule
 } from "@angular/material";
-import { UserReducer } from "./store/reducers/user.reducer";
-import { CurrentCardReducer } from "./store/reducers/currentCard.reducer";
-import { CardLibraryReducer } from "./store/reducers/cardLibrary.reducer";
+import { UserReducer } from "./core/store/reducers/user.reducer";
+import { CurrentCardReducer } from "./core/store/reducers/currentCard.reducer";
+import { CardLibraryReducer } from "./core/store/reducers/cardLibrary.reducer";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
